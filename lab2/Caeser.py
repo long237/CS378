@@ -5,6 +5,12 @@ def takeInput():
     user_input = input("Enter something to encrypt or decrypt: ")
     return user_input
 
+def getInt():
+    user_input = input("Enter a key: ")
+    while not user_input.isnumeric():
+        user_input = input("Enter a key: ")
+    return user_input
+
 def printMenu(): pass
 
 def encrypt(userInput, key):
@@ -30,9 +36,9 @@ def encrypt(userInput, key):
 
 def main():
     user_input = takeInput()
+    userInt = getInt()
     cipher = encrypt(user_input, 2)
     print("Size of user string: " + str(len(user_input)))
-    print("Check for letters: " + str(user_input.isalpha()))
     print("Cipher text:" + cipher)
     print("End of program")
 
