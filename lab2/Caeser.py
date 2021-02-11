@@ -13,31 +13,48 @@ def getInt():
 
 def printMenu(): pass
 
-def encrypt(userInput, key):
-    cipher = ""
-    for i in range(len(userInput)):
-        result = userInput[i].isalpha()
+def convert(userInput, key, flag):
+    reValue = ""
 
-        #If it is a letter then shift the index therefore encrypt it
-        if result:
-            userUpper = userInput[i].upper()
-            #indexPos = alphaList.index(userInput[i].upper())
-            indexPos = alphaList.index(userUpper)
-            enIndex = (indexPos + key) % 26
-            cipher = cipher + alphaList[enIndex]
+    if flag == 0:
+        for i in range(len(userInput)):
+            result = userInput[i].isalpha()
 
-        #not a letter just add to the cipher text
-        else:
-            cipher = cipher + userInput[i]
+            #If it is a letter then shift the index therefore encrypt it
+            if result:
+                userUpper = userInput[i].upper()
+                indexPos = alphaList.index(userUpper)
+                enIndex = (indexPos + key) % 26
+                reValue = reValue + alphaList[enIndex]
 
-    return cipher
+            #not a letter just add to the cipher text
+            else:
+                reValue = reValue + userInput[i]
+
+    #Decryption
+    elif flag == 1:
+        for i in range(len(userInput)):
+            result = userInput[i].isalpha()
+
+            # If it is a letter then shift the index therefore encrypt it
+            if result:
+                userUpper = userInput[i].upper()
+                indexPos = alphaList.index(userUpper)
+                deIndex = (indexPos + (26 - key)) % 26
+                reValue = reValue + alphaList[deIndex]
+
+            # not a letter just add to the cipher text
+            else:
+                reValue = reValue + userInput[i]
+
+    return reValue
 
 
 
 def main():
     user_input = takeInput()
     userInt = getInt()
-    cipher = encrypt(user_input, 2)
+    cipher = convert(user_input, 2, 1)
     print("Size of user string: " + str(len(user_input)))
     print("Cipher text:" + cipher)
     print("End of program")
