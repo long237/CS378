@@ -31,14 +31,21 @@ def convert(userInput, key, flag):
 
             #If it is a letter then shift the index therefore encrypt it
             if result:
+                lowerBool = userInput[i].islower()
                 userUpper = userInput[i].upper()
                 indexPos = alphaList.index(userUpper)
                 enIndex = (indexPos + key) % 26
-                reValue = reValue + alphaList[enIndex]
+
+                #if the letter was lower case, make it lower case again
+                ciLetter = alphaList[enIndex]
+                if lowerBool:
+                    ciLetter = alphaList[enIndex].lower()
+                reValue = reValue + ciLetter
 
             #not a letter just add to the cipher text
             else:
                 reValue = reValue + userInput[i]
+
 
     #Decryption
     elif flag == 2:
@@ -47,10 +54,15 @@ def convert(userInput, key, flag):
 
             # If it is a letter then shift the index therefore encrypt it
             if result:
+                lowerBool = userInput[i].islower()
                 userUpper = userInput[i].upper()
                 indexPos = alphaList.index(userUpper)
                 deIndex = (indexPos + (26 - key)) % 26
-                reValue = reValue + alphaList[deIndex]
+
+                ciLetter = alphaList[deIndex]
+                if lowerBool:
+                    ciLetter = alphaList[deIndex].lower()
+                reValue = reValue + ciLetter
 
             # not a letter just add to the cipher text
             else:
