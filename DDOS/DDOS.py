@@ -7,7 +7,9 @@
 from scapy.all import *
 import random
 
-targetIP = input("Enter IP address of target: ");
+#targetIP = input("Enter IP address of target: ");
+
+targetIP = "44.228.239.90";
 
 packetIP = 0;
 
